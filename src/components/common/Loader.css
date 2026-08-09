@@ -1,0 +1,45 @@
+.ak-loader {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-text-muted);
+}
+
+.ak-loader__ring {
+  border-radius: 50%;
+  border: 3px solid var(--color-primary-tint-2);
+  border-top-color: var(--color-primary);
+  animation: ak-loader-spin 0.7s linear infinite;
+}
+
+.ak-loader--sm .ak-loader__ring {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+}
+.ak-loader--md .ak-loader__ring {
+  width: 24px;
+  height: 24px;
+}
+.ak-loader--lg .ak-loader__ring {
+  width: 40px;
+  height: 40px;
+  border-width: 4px;
+}
+
+.ak-loader__label {
+  font-size: var(--font-size-sm);
+}
+
+.ak-loader__page {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes ak-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

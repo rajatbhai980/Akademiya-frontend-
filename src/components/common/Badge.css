@@ -1,0 +1,32 @@
+.ak-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.ak-badge--primary {
+  background: var(--color-primary-tint);
+  color: var(--color-primary-dark);
+}
+.ak-badge--neutral {
+  background: var(--color-surface-alt);
+  color: var(--color-text-muted);
+}
+.ak-badge--success {
+  background: #e5f6ec;
+  color: var(--color-success);
+}
+.ak-badge--error {
+  background: #fbeaea;
+  color: var(--color-error);
+}
+
+.ak-badge__icon {
+  display: inline-flex;
+  align-items: center;
+}

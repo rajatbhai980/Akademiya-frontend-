@@ -1,0 +1,13 @@
+.ak-footer {
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--space-7);
+}
+
+.ak-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-4);
+  font-size: var(--font-size-sm);
+}
