@@ -15,7 +15,7 @@ import AdminTool from '../pages/admin/AdminTool';
 import NotFound from '../pages/NotFound';
 
 
-import Search from '../pages/Search/Search';
+import Search from '../pages/search/Search';
 
 export default function AppRoutes() {
   return (
