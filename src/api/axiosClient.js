@@ -9,6 +9,10 @@ function readCookie(name) {
   return match ? decodeURIComponent(match[2]) : null;
 }
 
+export function deleteCookie(name) {
+  document.cookie = name + '=; Max-Age=0; path=/; domain=' + window.location.hostname;
+}
+
 const axiosClient = axios.create({
   baseURL: BASE_URL,
   withCredentials: true, // required for session cookies (credentials: include)

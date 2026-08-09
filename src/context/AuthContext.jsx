@@ -30,16 +30,20 @@ export function AuthProvider({ children }) {
   }, [refreshUser]);
 
   const login = useCallback((userData) => {
-    setUser(userData);
-    setIsAuthenticated(true);
+    setUser(userData ?? null);
+    setIsAuthenticated(Boolean(userData));
+    setIsLoading(false);
   }, []);
 
   const logout = useCallback(async () => {
     try {
       await authApi.logout();
+    } catch {
+      // Keep the UI in sync even if the server rejects the logout request.
     } finally {
       setUser(null);
       setIsAuthenticated(false);
+      setIsLoading(false);
     }
   }, []);
 

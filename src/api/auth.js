@@ -1,4 +1,5 @@
 import axiosClient from './axiosClient';
+import { deleteCookie } from './axiosClient';
 
 /** Initialize CSRF protection. Must be called before any authenticated/state-changing call. */
 export const fetchCsrfCookie = () => axiosClient.get('/users/csrf/');
@@ -14,4 +15,7 @@ export const verifyOtp = (email, otp) =>
 export const fetchCurrentUser = () => axiosClient.get('/users/me/');
 
 /** Log out and clear the session. */
-export const logout = () => axiosClient.post('/users/logout/');
+export const logout = () => {
+  deleteCookie('csrftoken'); // clear CSRF cookie to prevent accidental reuse
+  axiosClient.post('/users/logout/')
+};
