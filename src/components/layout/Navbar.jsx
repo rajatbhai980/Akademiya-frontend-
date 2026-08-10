@@ -48,7 +48,12 @@ export default function Navbar() {
           Akademiya
         </NavLink>
 
-        <form className="ak-navbar__search" onSubmit={handleSearchSubmit} role="search">
+        {/* Desktop search — hidden inside the dropdown breakpoint */}
+        <form
+          className="ak-navbar__search ak-navbar__search--desktop"
+          onSubmit={handleSearchSubmit}
+          role="search"
+        >
           <input
             type="search"
             className="ak-navbar__search-input"
@@ -63,6 +68,25 @@ export default function Navbar() {
         </form>
 
         <nav className={`ak-navbar__links ${menuOpen ? 'ak-navbar__links--open' : ''}`}>
+          {/* Mobile search — lives inside the hamburger dropdown */}
+          <form
+            className="ak-navbar__search ak-navbar__search--mobile"
+            onSubmit={handleSearchSubmit}
+            role="search"
+          >
+            <input
+              type="search"
+              className="ak-navbar__search-input"
+              placeholder="Search scholars..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              aria-label="Search scholars by username or bio"
+            />
+            <button type="submit" className="ak-navbar__search-icon-btn" aria-label="Search">
+              <Search size={16} />
+            </button>
+          </form>
+
           {links.map((link) => (
             <NavLink
               key={link.to}

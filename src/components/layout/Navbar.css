@@ -67,39 +67,7 @@
   color: var(--color-text);
 }
 
-@media (max-width: 860px) {
-  .ak-navbar__toggle {
-    display: flex;
-  }
-
-  .ak-navbar__links {
-    position: absolute;
-    top: var(--header-height);
-    left: 0;
-    right: 0;
-    background: var(--color-surface);
-    border-bottom: 1px solid var(--color-border);
-    flex-direction: column;
-    align-items: stretch;
-    padding: var(--space-3) var(--space-5) var(--space-5);
-    gap: var(--space-1);
-    transform: translateY(-8px);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform var(--duration-base) var(--ease-standard),
-      opacity var(--duration-base) var(--ease-standard);
-  }
-
-  .ak-navbar__links--open {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .ak-navbar__link {
-    justify-content: flex-start;
-  }
-}
+/* ---------- Search ---------- */
 
 .ak-navbar__search {
   display: flex;
@@ -140,11 +108,56 @@
   color: var(--color-text, #14231a);
 }
 
-@media (max-width: 768px) {
-  .ak-navbar__search {
-    max-width: none;
-    order: 3;
-    margin: 8px 0 0;
+/* Mobile copy is hidden by default (desktop shows it instead) */
+.ak-navbar__search--mobile {
+  display: none;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 860px) {
+  .ak-navbar__toggle {
+    display: flex;
+  }
+
+  /* Hide the standalone header search bar */
+  .ak-navbar__search--desktop {
+    display: none;
+  }
+
+  /* Show the copy that lives inside the dropdown */
+  .ak-navbar__search--mobile {
+    display: flex;
     width: 100%;
+    max-width: none;
+    margin: 0 0 var(--space-3);
+  }
+
+  .ak-navbar__links {
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    flex-direction: column;
+    align-items: stretch;
+    padding: var(--space-3) var(--space-5) var(--space-5);
+    gap: var(--space-1);
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform var(--duration-base) var(--ease-standard),
+      opacity var(--duration-base) var(--ease-standard);
+  }
+
+  .ak-navbar__links--open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .ak-navbar__link {
+    justify-content: flex-start;
   }
 }
