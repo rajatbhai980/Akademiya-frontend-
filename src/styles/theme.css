@@ -4,19 +4,19 @@
 */
 :root {
   /* Brand */
-  --color-primary: #1f7a4d;
-  --color-primary-dark: #145c39;
-  --color-primary-light: #2e9e66;
-  --color-primary-tint: #e6f4ec;
-  --color-primary-tint-2: #cdead9;
+  --color-primary: #00ADB5;
+  --color-primary-hover: #00959c;
+  --color-primary-dark: #222831;
+  --color-secondary: #393E46;
+  --color-tint: #EEEEEE;
 
   /* Neutrals */
   --color-bg: #ffffff;
   --color-surface: #ffffff;
-  --color-surface-alt: #f6f8f7;
-  --color-border: #e1e6e3;
-  --color-text: #14201a;
-  --color-text-muted: #5b6b62;
+  --color-surface-alt: #f4f6f6;
+  --color-border: #e2e6e5;
+  --color-text: #222831;
+  --color-text-muted: #5c6570;
   --color-text-inverse: #ffffff;
 
   /* Feedback */
@@ -26,9 +26,9 @@
   --color-info: #2b6cb0;
 
   /* Elevation */
-  --shadow-sm: 0 1px 2px rgba(20, 32, 26, 0.06);
-  --shadow-md: 0 4px 14px rgba(20, 32, 26, 0.08);
-  --shadow-lg: 0 12px 32px rgba(20, 32, 26, 0.12);
+  --shadow-sm: 0 1px 2px rgba(34, 40, 49, 0.06);
+  --shadow-md: 0 4px 14px rgba(34, 40, 49, 0.08);
+  --shadow-lg: 0 12px 32px rgba(34, 40, 49, 0.12);
 
   /* Radius */
   --radius-sm: 6px;
@@ -66,4 +66,4 @@
   --max-width: 1120px;
 }
 
-/* Dark surfaces reserved for future use — kept minimal per brief (green + white) */
+/* Dark surfaces reserved for future use — kept minimal per brief (navy + teal + white) */
