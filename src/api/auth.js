@@ -1,5 +1,5 @@
 import axiosClient from './axiosClient';
-import { deleteCookie } from './axiosClient';
+import { fetchCsrfToken } from './csrf';
 
 /** Initialize CSRF protection. Must be called before any authenticated/state-changing call. */
 export const fetchCsrfCookie = () => axiosClient.get('/users/csrf/');
@@ -8,14 +8,17 @@ export const fetchCsrfCookie = () => axiosClient.get('/users/csrf/');
 export const requestOtp = (email) => axiosClient.post('/users/otp_request/', { email });
 
 /** Verify OTP and log the user in. */
-export const verifyOtp = (email, otp) =>
-  axiosClient.post('/users/otp_verification/', { email, otp });
+export const verifyOtp = async (email, otp) => {
+  const res = await axiosClient.post('/users/otp_verification/', { email, otp });
+  await fetchCsrfToken(axiosClient); // refresh token post-login
+  return res;
+};
 
 /** Get the currently authenticated user (if any). */
 export const fetchCurrentUser = () => axiosClient.get('/users/me/');
 
 /** Log out and clear the session. */
-export const logout = () => {
-  deleteCookie('csrftoken'); // clear CSRF cookie to prevent accidental reuse
-  axiosClient.post('/users/logout/')
+export const logout = async () => {
+  await axiosClient.post('/users/logout/');
+  await fetchCsrfToken(axiosClient); // refresh token post-logout
 };
