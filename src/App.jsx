@@ -3,6 +3,9 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { AuthProvider } from './context/AuthContext';
 import { NotificationProvider } from './context/NotificationContext';
 import AppRoutes from './routes/AppRoutes';
+import { useEffect } from 'react';
+import { fetchCsrfToken } from './api/csrf';
+import axiosClient from './api/axiosClient';
 
 // Keep MUI (used for notifications) visually aligned with the CSS theme tokens.
 const muiTheme = createTheme({
@@ -17,6 +20,10 @@ const muiTheme = createTheme({
 });
 
 export default function App() {
+  useEffect(() => {
+    fetchCsrfToken(axiosClient).catch(() => {});
+  }, []);
+
   return (
     <ThemeProvider theme={muiTheme}>
       <BrowserRouter>
