@@ -51,3 +51,22 @@
   font-weight: 600;
   font-size: var(--font-size-sm);
 }
+
+.ak-leaderboard__avatar {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--color-surface-muted, #e6e6e6);
+}
+
+.ak-leaderboard__avatar--fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-tint);
+  color: var(--color-primary-dark);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+}

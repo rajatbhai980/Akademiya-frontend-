@@ -3,12 +3,14 @@ import { Trophy, Medal } from 'lucide-react';
 import { Card, Loader, EmptyState } from '../../components/common';
 import { leaderboardApi } from '../../api';
 import { useNotification } from '../../hooks/useNotification';
+import { useNavigate } from 'react-router-dom';
 import './Leaderboard.css';
 
 export default function Leaderboard() {
   const { notifyError } = useNotification();
   const [scholars, setScholars] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     leaderboardApi
@@ -34,10 +36,27 @@ export default function Leaderboard() {
       ) : (
         <Card>
           {scholars.map((s, i) => (
-            <div key={`${s.username}-${i}`} className="ak-leaderboard__row">
+            <div
+              key={`${s.username}-${i}`}
+              className="ak-leaderboard__row"
+              onClick={() => navigate(`/profile/${s.id}`)}
+            >
               <span className="ak-leaderboard__rank">
-                {i < 3 ? <Medal size={20} className={`ak-leaderboard__medal ak-leaderboard__medal--${i}`} /> : i + 1}
+                {i < 3 ? (
+                  <Medal size={20} className={`ak-leaderboard__medal ak-leaderboard__medal--${i}`} />
+                ) : (
+                  i + 1
+                )}
               </span>
+
+              {s.photo ? (
+                <img className="ak-leaderboard__avatar" src={s.photo} alt={s.username} />
+              ) : (
+                <div className="ak-leaderboard__avatar ak-leaderboard__avatar--fallback">
+                  {s.username.charAt(0).toUpperCase()}
+                </div>
+              )}
+
               <span className="ak-leaderboard__name">{s.username}</span>
               <span className="ak-leaderboard__level">Level {s.level}</span>
             </div>
