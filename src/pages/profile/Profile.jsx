@@ -6,6 +6,7 @@ import { profileApi } from '../../api';
 import { useAuth } from '../../hooks/useAuth';
 import { useNotification } from '../../hooks/useNotification';
 import './Profile.css';
+import {BASE_URL} from "../../api/axiosClient";
 
 export default function Profile() {
   const { pk } = useParams();
