@@ -66,6 +66,10 @@
   --max-width: 1120px;
 }
 
+html{
+    scrollbar-gutter: stable; 
+}
+
 /* Palette reference from source image:
    #252525 (near-black)  → --color-primary-dark, --color-text
    #CFCFCF (light gray)  → --color-tint base (lightened toward white)
