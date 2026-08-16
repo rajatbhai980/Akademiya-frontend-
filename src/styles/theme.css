@@ -4,31 +4,31 @@
 */
 :root {
   /* Brand */
-  --color-primary: #1f7a4d;
-  --color-primary-dark: #145c39;
-  --color-primary-light: #2e9e66;
-  --color-primary-tint: #e6f4ec;
-  --color-primary-tint-2: #cdead9;
+  --color-primary: #545454;
+  --color-primary-hover: #3D3D3D;
+  --color-primary-dark: #252525;
+  --color-secondary: #7D7D7D;
+  --color-tint: #F5F5F5;
 
   /* Neutrals */
   --color-bg: #ffffff;
   --color-surface: #ffffff;
-  --color-surface-alt: #f6f8f7;
-  --color-border: #e1e6e3;
-  --color-text: #14201a;
-  --color-text-muted: #5b6b62;
+  --color-surface-alt: #F7F7F7;
+  --color-border: #DEDEDE;
+  --color-text: #252525;
+  --color-text-muted: #7D7D7D;
   --color-text-inverse: #ffffff;
 
   /* Feedback */
   --color-success: #1f7a4d;
   --color-error: #c53d3d;
   --color-warning: #b8860b;
-  --color-info: #2b6cb0;
+  --color-info: #545454;
 
   /* Elevation */
-  --shadow-sm: 0 1px 2px rgba(20, 32, 26, 0.06);
-  --shadow-md: 0 4px 14px rgba(20, 32, 26, 0.08);
-  --shadow-lg: 0 12px 32px rgba(20, 32, 26, 0.12);
+  --shadow-sm: 0 1px 2px rgba(37, 37, 37, 0.06);
+  --shadow-md: 0 4px 14px rgba(37, 37, 37, 0.08);
+  --shadow-lg: 0 12px 32px rgba(37, 37, 37, 0.12);
 
   /* Radius */
   --radius-sm: 6px;
@@ -66,4 +66,13 @@
   --max-width: 1120px;
 }
 
-/* Dark surfaces reserved for future use — kept minimal per brief (green + white) */
+html{
+    scrollbar-gutter: stable; 
+}
+
+/* Palette reference from source image:
+   #252525 (near-black)  → --color-primary-dark, --color-text
+   #CFCFCF (light gray)  → --color-tint base (lightened toward white)
+   #7D7D7D (mid gray)    → --color-secondary, --color-text-muted
+   #545454 (dark gray)   → --color-primary
+*/
