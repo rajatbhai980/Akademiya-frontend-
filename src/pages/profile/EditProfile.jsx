@@ -12,7 +12,7 @@ export default function EditProfile() {
   const { notifySuccess, notifyError } = useNotification();
   const navigate = useNavigate();
 
-  const [form, setForm] = useState({ username: '', semester: '', bio: '', photo: null });
+  const [form, setForm] = useState({ username: null, semester: null, bio: null, photo: null });
   const [originalForm, setOriginalForm] = useState(null); // NEW: snapshot to diff against
   const [photoFile, setPhotoFile] = useState(null);
   const [photoPreview, setPhotoPreview] = useState(null);
@@ -24,9 +24,9 @@ export default function EditProfile() {
       .fetchProfile(user.id)
       .then(({ data }) => {
         const loaded = {
-          username: data.profile_info.username || '',
-          semester: data.profile_info.semester || '',
-          bio: data.profile_info.bio || '',
+          username: data.profile_info.username || null,
+          semester: data.profile_info.semester || null,
+          bio: data.profile_info.bio || null,
           photo: data.profile_info.photo || null,
         };
         setForm(loaded);
@@ -66,7 +66,7 @@ export default function EditProfile() {
     setIsSubmitting(true);
     try {
       const payload = { ...form };
-      if (photoFile) payload.photo = photoFile;
+      photoFile ? payload.photo = photoFile: payload.photo = null; 
       await profileApi.updateProfile(payload);
       notifySuccess('Profile updated.');
       navigate(`/profile/${user.id}`);
